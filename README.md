@@ -35,5 +35,7 @@ https://github.com/nihui/opencv-mobile
 * FPS may be lower in dark environment because of longer camera exposure time
 
 ## screenshot
-![](screenshot.jpg)
+![](screenshot0.jpg)
+![](screenshot1.jpg)
+![](screenshot2.jpg)
 
