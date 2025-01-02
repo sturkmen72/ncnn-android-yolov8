@@ -497,16 +497,16 @@ int YOLOv8_seg::detect(const cv::Mat& rgb, std::vector<Object>& objects)
 int YOLOv8_seg::draw(cv::Mat& rgb, const std::vector<Object>& objects)
 {
     static const char* class_names[] = {
-        "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
-        "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow",
-        "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella", "handbag", "tie", "suitcase", "frisbee",
-        "skis", "snowboard", "sports ball", "kite", "baseball bat", "baseball glove", "skateboard", "surfboard",
-        "tennis racket", "bottle", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple",
-        "sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake", "chair", "couch",
-        "potted plant", "bed", "dining table", "toilet", "tv", "laptop", "mouse", "remote", "keyboard", "cell phone",
-        "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors", "teddy bear",
-        "hair drier", "toothbrush"
-    };
+        "insan", "bisiklet", "araba", "motosiklet", "ucak", "otobus", "tren", "kamyon", "tekne", "trafik lambasi",
+        "yangin muslugu", "dur levhasi", "park saati", "bank", "kus", "kedi", "kopek", "at", "koyun", "inek",
+        "fil", "ayi", "zebra", "zurafa", "sirt cantasi", "semsiye", "el cantasi", "kravat", "bavul", "frizbi",
+        "kayak", "kar tahtasi", "spor topu", "ucurtma", "beyzbol sopasi", "beyzbol eldiveni", "kaykay", "surf tahtasi",
+        "tenis raketi", "sise", "sarap bardagi", "kupa", "catal", "bicak", "kasik", "kase", "muz", "elma",
+        "sandvic", "portakal", "brokoli", "havuc", "sosisli sandvic", "pizza", "donut", "pasta", "sandalye", "kanepe",
+        "saksi bitkisi", "yatak", "yemek masasi", "tuvalet", "tv", "dizustu bilgisayar", "fare", "kumanda", "klavye", "cep telefonu",
+        "mikrodalga", "firin", "tost makinesi", "lavabo", "buzdolabi", "kitap", "saat", "vazo", "makas", "oyuncak ayi",
+        "sac kurutma makinesi", "dis fircasi"
+};
 
     static cv::Scalar colors[] = {
         cv::Scalar( 67,  54, 244),

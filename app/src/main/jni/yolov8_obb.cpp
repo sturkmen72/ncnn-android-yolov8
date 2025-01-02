@@ -397,10 +397,10 @@ int YOLOv8_obb::detect(const cv::Mat& rgb, std::vector<Object>& objects)
 int YOLOv8_obb::draw(cv::Mat& rgb, const std::vector<Object>& objects)
 {
     static const char* class_names[] = {
-        "plane", "ship", "storage tank", "baseball diamond", "tennis court",
-        "basketball court", "ground track field", "harbor", "bridge", "large vehicle",
-        "small vehicle", "helicopter", "roundabout", "soccer ball field", "swimming pool"
-    };
+        "ucak", "gemi", "depo tanki", "beyzbol sahasi", "tenis kortu",
+        "basketbol sahasi", "kosu pisti", "liman", "kopru", "buyuk arac",
+        "kucuk arac", "helikopter", "donel kavsak", "futbol sahasi", "yuzme havuzu"
+};
 
     static const cv::Scalar colors[] = {
         cv::Scalar( 39, 176, 156),

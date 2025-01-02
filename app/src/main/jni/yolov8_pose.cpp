@@ -407,7 +407,7 @@ int YOLOv8_pose::detect(const cv::Mat& rgb, std::vector<Object>& objects)
 
 int YOLOv8_pose::draw(cv::Mat& rgb, const std::vector<Object>& objects)
 {
-    static const char* class_names[] = {"person"};
+    static const char* class_names[] = {"insan"};
 
     static const cv::Scalar colors[] = {
         cv::Scalar( 67,  54, 244),
