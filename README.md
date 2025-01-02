@@ -1,5 +1,7 @@
 # ncnn-android-yolov8
 
+![download](https://img.shields.io/github/downloads/nihui/ncnn-android-yolov8/total.svg?style=for-the-badge)
+
 The YOLOv8 object detection
 
 This is a sample ncnn android project, it depends on ncnn library and opencv
