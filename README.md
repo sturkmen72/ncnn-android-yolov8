@@ -1,6 +1,6 @@
 # ncnn-android-yolov8
 
-![download](https://img.shields.io/github/downloads/nihui/ncnn-android-yolov8/total.svg?style=for-the-badge)
+![download](https://img.shields.io/github/downloads/nihui/ncnn-android-yolov8/total.svg)
 
 The YOLOv8 object detection
 
