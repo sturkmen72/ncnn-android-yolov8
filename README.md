@@ -39,7 +39,7 @@ https://github.com/nihui/opencv-mobile
 ![](screenshot1.jpg)
 ![](screenshot2.jpg)
 
-## guidelines for exporting YOLOv8 models
+## guidelines for converting YOLOv8 models
 
 ### 1. install
 
