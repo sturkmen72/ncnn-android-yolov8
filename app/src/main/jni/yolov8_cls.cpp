@@ -12,12 +12,15 @@
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the
 // specific language governing permissions and limitations under the License.
 
-// pip3 install -U ultralytics pnnx ncnn
-// yolo export model=yolov8n-cls.pt format=torchscript
-// pnnx yolov8n-cls.torchscript
-
-// yolov8n_cls_pnnx.py.ncnn.param
-// yolov8n_cls_pnnx.py.ncnn.bin
+// 1. install
+//      pip3 install -U ultralytics pnnx ncnn
+// 2. export yolov8-cls torchscript
+//      yolo export model=yolov8n-cls.pt format=torchscript
+// 3. convert torchscript with static shape
+//      pnnx yolov8n-cls.torchscript
+// 4. now you get ncnn model files
+//      yolov8n_cls.ncnn.param
+//      yolov8n_cls.ncnn.bin
 
 #include "yolov8.h"
 

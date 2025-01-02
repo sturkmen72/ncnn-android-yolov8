@@ -12,15 +12,47 @@
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the
 // specific language governing permissions and limitations under the License.
 
-// pip3 install -U ultralytics pnnx ncnn
-// yolo export model=yolov8n-seg.pt format=torchscript
-// pnnx yolov8n-seg.torchscript
-// modify yolov8n_seg_pnnx.py
-// python3 -c 'import yolov8n_seg_pnnx; yolov8n_seg_pnnx.export_torchscript()'
-// pnnx yolov8n_seg_pnnx.py.pt inputshape=[1,3,640,640] inputshape2=[1,3,320,320]
-
-// yolov8n_seg_pnnx.py.ncnn.param
-// yolov8n_seg_pnnx.py.ncnn.bin
+// 1. install
+//      pip3 install -U ultralytics pnnx ncnn
+// 2. export yolov8-seg torchscript
+//      yolo export model=yolov8n-seg.pt format=torchscript
+// 3. convert torchscript with static shape
+//      pnnx yolov8n-seg.torchscript
+// 4. modify yolov8n_seg_pnnx.py for dynamic shape inference
+//      A. modify reshape to support dynamic image sizes
+//      B. permute tensor before concat and adjust concat axis
+//      C. drop post-process part
+//      before:
+//          v_144 = v_143.view(1, 32, 6400)
+//          v_150 = v_149.view(1, 32, 1600)
+//          v_156 = v_155.view(1, 32, 400)
+//          v_157 = torch.cat((v_144, v_150, v_156), dim=2)
+//          ...
+//          v_191 = v_168.view(1, 144, 6400)
+//          v_192 = v_179.view(1, 144, 1600)
+//          v_193 = v_190.view(1, 144, 400)
+//          v_194 = torch.cat((v_191, v_192, v_193), dim=2)
+//          ...
+//          v_215 = (v_214, v_138, )
+//          return v_215
+//      after:
+//          v_144 = v_143.view(1, 32, -1).transpose(1, 2)
+//          v_150 = v_149.view(1, 32, -1).transpose(1, 2)
+//          v_156 = v_155.view(1, 32, -1).transpose(1, 2)
+//          v_157 = torch.cat((v_144, v_150, v_156), dim=1)
+//          ...
+//          v_191 = v_168.view(1, 144, -1).transpose(1, 2)
+//          v_192 = v_179.view(1, 144, -1).transpose(1, 2)
+//          v_193 = v_190.view(1, 144, -1).transpose(1, 2)
+//          v_194 = torch.cat((v_191, v_192, v_193), dim=1)
+//          return v_194, v_157, v_138
+// 5. re-export yolov8-seg torchscript
+//      python3 -c 'import yolov8n_seg_pnnx; yolov8n_seg_pnnx.export_torchscript()'
+// 6. convert new torchscript with dynamic shape
+//      pnnx yolov8n_seg_pnnx.py.pt inputshape=[1,3,640,640] inputshape2=[1,3,320,320]
+// 7. now you get ncnn model files
+//      mv yolov8n_seg_pnnx.py.ncnn.param yolov8n_seg.ncnn.param
+//      mv yolov8n_seg_pnnx.py.ncnn.bin yolov8n_seg.ncnn.bin
 
 // the out blob would be a 2-dim tensor with w=176 h=8400
 //
