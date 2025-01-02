@@ -74,8 +74,8 @@ pnnx yolov8n-obb.torchscript
 Edit `yolov8n_pnnx.py` / `yolov8n_seg_pnnx.py` / `yolov8n_pose_pnnx.py` / `yolov8n_obb_pnnx.py`
 
 - modify reshape to support dynamic image sizes
-- permute tensor before concat and adjust concat axis
-- drop post-process part
+- permute tensor before concat and adjust concat axis (permutations are faster on smaller tensors)
+- drop post-process part (we implement the post-process externally to avoid invalid bounding box coordinate calculations below the threshold, which is faster)
 
 <table>
 <tr align="center"><td>model</td><td>before</td><td>after</td></tr>
