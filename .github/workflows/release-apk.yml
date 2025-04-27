@@ -1,9 +1,5 @@
 name: release-apk
-on: [push]
-# on:
-  # push:
-    # tags:
-      # - '*'
+on: workflow_dispatch
 
 env:
   NCNN_VERSION: 20250427
