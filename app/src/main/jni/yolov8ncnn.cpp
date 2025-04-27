@@ -250,7 +250,12 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_yolov8ncnn_YOLOv8Ncnn_loadModel(JNIE
 
                 g_yolov8->load(mgr, parampath.c_str(), modelpath.c_str(), use_gpu || use_turnip);
             }
-            g_yolov8->set_det_target_size((int)modelid >= 3 ? 640 : 320);
+            int target_size = 320;
+            if ((int)modelid >= 3)
+                target_size = 480;
+            if ((int)modelid >= 6)
+                target_size = 640;
+            g_yolov8->set_det_target_size(target_size);
         }
     }
 
