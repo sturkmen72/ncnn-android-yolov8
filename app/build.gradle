@@ -29,4 +29,10 @@ android {
     dependencies {
         implementation 'com.android.support:support-v4:24.0.0'
     }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
 }
