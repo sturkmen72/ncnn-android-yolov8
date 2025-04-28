@@ -195,8 +195,11 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_yolov8ncnn_YOLOv8Ncnn_loadModel(JNIE
         "_obb"
     };
 
-    const char* modeltypes[6] =
+    const char* modeltypes[9] =
     {
+        "n",
+        "s",
+        "m",
         "n",
         "s",
         "m",
