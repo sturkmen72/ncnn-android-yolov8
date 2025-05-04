@@ -10,6 +10,8 @@ https://github.com/Tencent/ncnn
 
 https://github.com/nihui/opencv-mobile
 
+https://github.com/nihui/mesa-turnip-android-driver  (mesa turnip driver)
+
 ## android apk file download
 https://github.com/nihui/ncnn-android-yolov8/releases/latest
 
@@ -27,6 +29,13 @@ https://github.com/nihui/opencv-mobile
 * Extract opencv-mobile-XYZ-android.zip into **app/src/main/jni** and change the **OpenCV_DIR** path to yours in **app/src/main/jni/CMakeLists.txt**
 
 ### step3
+https://github.com/nihui/mesa-turnip-android-driver
+
+* Download mesa-turnip-android-XYZ.zip
+* Create directory **app/src/main/jniLibs/arm64-v8a** if not exists
+* Extract `libvulkan_freedreno.so` from mesa-turnip-android-XYZ.zip into **app/src/main/jniLibs/arm64-v8a**
+
+### step4
 * Open this project with Android Studio, build it and enjoy!
 
 ## some notes
